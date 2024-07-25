@@ -1,4 +1,6 @@
 const Usuario = require("../models/Usuario")
+const { compareSync } = require("bcryptjs")
+const { sign } = require("jsonwebtoken")
 
 const regexCpf = new RegExp(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)
 const regexEmail = new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)
@@ -62,6 +64,46 @@ class UsuarioController{
             console.log(error)
             response.status(500).json({mensagem: "Erro ao criar novo usuário"})
         }
+
+    }
+
+
+    async login(request, response){
+        const dados = request.body
+
+        if(!dados.email || !dados.password){
+            return response.status(400)
+            .json({ mensagem: "Email e senha são obrigatórios" })
+        }
+
+        const usuario = await Usuario.findOne({
+            where: {email: dados.email }
+        })
+
+        if(!usuario){
+            return response.status(404)
+            .json({mensagem: "Conta não encontrada"})
+        }
+
+        const senhaCorreta = compareSync(
+            dados.password, usuario.password
+        )
+
+        if(senhaCorreta === false){
+            return response.status(404)
+            .json({ mensagem: "Email ou a senha inválido, tente novamente" })
+        }
+
+        const token = sign(
+            {id: usuario.id },
+            process.env.SECRET_JWT,
+            {expiresIn: '1d'}
+        )
+
+        response.json({
+            token: token,
+            nome: usuario.nome
+        })
 
     }
 
