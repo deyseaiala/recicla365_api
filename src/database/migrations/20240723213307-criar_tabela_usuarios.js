@@ -21,15 +21,20 @@ module.exports = {
           allowNull: false,
           unique: true
         },
-        password_hash: {
+        password: {
           type: Sequelize.STRING,
           allowNull: false,
+        },
+        cpf: {
+          type: Sequelize.STRING,
+          allowNull: false,
+          unique: true
         },
         sexo: {
           type: Sequelize.STRING,
         },
         data_nascimento: {
-          type: Sequelize.DATE,
+          type: Sequelize.DATEONLY,
           allowNull: false
         },
         endereco: {

@@ -11,24 +11,28 @@ const Usuario = connection.define(
         email: {
             type: DataTypes.STRING
         },
-        password_hash: {
+        password: {
+            type: DataTypes.STRING
+        },
+        cpf: {
             type: DataTypes.STRING
         },
         sexo: {
             type: DataTypes.STRING
         },
         data_nascimento: {
-            type: DataTypes.DATE
+            type: DataTypes.DATEONLY
         },
         endereco: {
             type: DataTypes.STRING
-        }
+        },
+    
     }
 )
 
 Usuario.beforeSave((usuario) => {
 
-    usuario.password_hash = hashSync(usuario.password_hash, 10) 
+    usuario.password = hashSync(usuario.password, 10) 
     return usuario
  })
 
