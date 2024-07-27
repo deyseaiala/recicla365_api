@@ -13,19 +13,13 @@ const LocalColeta = connection.define(
         cep: {
             type: DataTypes.STRING
         },
-        endereco: {
+        lon: {
             type: DataTypes.STRING
         },
-        estado: {
+        lat: {
             type: DataTypes.STRING
         },
-        cidade: {
-            type: DataTypes.STRING
-        },
-        longitude: {
-            type: DataTypes.STRING
-        },
-        latitude: {
+        googleMapsLink: {
             type: DataTypes.STRING
         },
         contato: {

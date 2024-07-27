@@ -20,28 +20,17 @@ module.exports = {
           type: Sequelize.TEXT,
         },
         cep: {
-          type: Sequelize.STRING(8),
+          type: Sequelize.STRING(9),
           allowNull: false
         },
-        endereco: {
+        lon: {
           type: Sequelize.STRING(100),
-          allowNull: false
         },
-        estado: {
-          type: Sequelize.STRING(2),
-          allowNull: false
-        },
-        cidade: {
+        lat: {
           type: Sequelize.STRING(100),
-          allowNull: false
         },
-        longitude: {
+        googleMapsLink: {
           type: Sequelize.STRING(100),
-          allowNull: false
-        },
-        latitude: {
-          type: Sequelize.STRING(100),
-          allowNull: false
         },
         contato: {
           type: Sequelize.STRING(100),

@@ -10,8 +10,8 @@ function auth(request, response, next){
             .json({ mensagem: "Token vazio, por favor insira um token válido"})
         }
 
-        const jwt = token.split("")
-        const verificado = verify(jwt[1], process.env.JWT_SECRET)
+        const jwt = token.split(" ")
+        const verificado = verify(jwt[1], process.env.SECRET_JWT)
 
         request.usuarioId = verificado.id
 

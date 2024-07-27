@@ -9,11 +9,12 @@ class UsuarioController{
 
     async criarUsuario(request, response){
         try {
+            
             const dados = request.body 
 
             if(!dados.nome || !dados.email || !dados.password || !dados.data_nascimento || !dados.cpf  ){
                 return response.status(400)
-                .json({mensagem: "Todos com * são obrigatórios, por favor complete os dados"}) 
+                .json({mensagem: "Existem dados obrigatórios incompletos"}) 
             }
 
             if(regexEmail.test(dados.email) === false){
@@ -41,7 +42,7 @@ class UsuarioController{
 
             if(emailExistente || cpfExistente){
                 return response.status(409)
-                .json({ mensagem: "Já existe usuário com esse email ou CPF"})
+                .json({ mensagem: "Email ou CPF indisponível"})
             }
 
             const novoUsuario = await Usuario.create({
@@ -69,7 +70,8 @@ class UsuarioController{
 
 
     async login(request, response){
-        const dados = request.body
+        try {
+            const dados = request.body
 
         if(!dados.email || !dados.password){
             return response.status(400)
@@ -90,7 +92,7 @@ class UsuarioController{
         )
 
         if(senhaCorreta === false){
-            return response.status(404)
+            return response.status(401)
             .json({ mensagem: "Email ou a senha inválido, tente novamente" })
         }
 
@@ -102,9 +104,15 @@ class UsuarioController{
 
         response.json({
             token: token,
-            nome: usuario.nome
+            nome: usuario.nome,
+            id: usuario.id,
+            email: usuario.email
         })
 
+        } catch (error) {
+            console.log(error)
+            response.status(500).json({mensagem: "Não foi possível realizar login"})
+        }
     }
 
 }
