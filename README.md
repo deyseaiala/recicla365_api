@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # **RECICLA 365 API**
 
 O Recicla365 é uma plataforma que facilita o gerenciamento de resíduos e o acesso a pontos
@@ -64,7 +62,6 @@ O banco de dados do projeto é organizado em duas tabelas principais, a de **usu
 A relação entre as tabelas é do tipo um para muitos, onde um usuário pode possuir muitos locais de coleta. 
 Essa relação se dá pela chave estrangeira **usuario_id** na tabela locais_coleta, que referencia o **id** da tabela usuarios.
 
->>>>>>> 4e50c3985364925cc2f49a9f4331abd7f6c68925
 ## Rodar o repositório:
 
 ### Na primeira vez é necessário instalar as dependencias:
@@ -78,11 +75,8 @@ Essa relação se dá pela chave estrangeira **usuario_id** na tabela locais_col
 
 ### Criar uma migration
 1. Opção nº 1: `sequelize migration:generate --name nome_da_migracao`
-<<<<<<< HEAD
-2. Opção nº 2: `npx sequelize-cli migration:generate --name criar_tabela_alunos`
-=======
 2. Opção nº 2: `npx sequelize-cli migration:generate --name criar_tabela_usuarios`
->>>>>>> 4e50c3985364925cc2f49a9f4331abd7f6c68925
+
 ### Rodar uma migration. Opções:
 1. Opção nº 1: `sequelize db:migrate`
 2. Opção nº 2: `npx sequelize db:migrate`
@@ -95,10 +89,6 @@ Essa relação se dá pela chave estrangeira **usuario_id** na tabela locais_col
 1. Opção nº 1: `sequelize-cli db:migrate:undo:all`
 2. Opção nº 2: `npx sequelize-cli db:migrate:undo:all`
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 4e50c3985364925cc2f49a9f4331abd7f6c68925
 ## Trabalhando com Seeders
 
 ### Executar o seeders para gerar valores iniciais no banco de dados:
@@ -111,17 +101,11 @@ https://sequelize.org/docs/v6/core-concepts/model-basics/
 ## Trabalhando com Documentação:
 
 ### Gerar o documento do Swagger.json usando o AutoGen
-<<<<<<< HEAD
-
-`npm run swagger`
-
-=======
 `npm run swagger`
 
 ### Para visualizar a interface do Swagger
 No navegador: http://localhost:3000/docs/
 
->>>>>>> 4e50c3985364925cc2f49a9f4331abd7f6c68925
 ## Bibliotecas utilizadas:
 
 ### instalar o sequelize
@@ -139,13 +123,9 @@ No navegador: http://localhost:3000/docs/
 ### instalar o Swagger UI
 `npm install swagger-ui-express`
 ### instalar o Swagger AutoGen para gerar o documento Swagger de forma automatica.
-<<<<<<< HEAD
-`npm install swagger-autogen`
-=======
 `npm install swagger-autogen`
 
 ##Desenvolvedora 
 **Deyse Aiala: https://github.com/deyseaiala**
 
 
->>>>>>> 4e50c3985364925cc2f49a9f4331abd7f6c68925
