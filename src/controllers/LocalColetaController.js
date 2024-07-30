@@ -75,8 +75,8 @@ class LocalColetaController{
 
         } catch (error) {
             response.status(500)
-            //.json({ mensagem: "Erro ao encontrar este local" })
-            .json({ mensagem: error.message })
+            .json({ mensagem: "Erro ao encontrar este local" })
+            
         }
     }
 
@@ -99,8 +99,8 @@ class LocalColetaController{
             
         } catch (error) {
             response.status(500)
-            //.json({mensagem: 'Erro ao deletar local'})
-            .json({ mensagem: error.message })
+            .json({mensagem: 'Erro ao deletar local'})
+            
         }
     }
 
@@ -143,8 +143,8 @@ class LocalColetaController{
         } catch (error) {
             console.log(error)
             response.status(500)
-            //.json({mensagem: 'Erro ao atualizar local de coleta'})
-            .json({ mensagem: error.message })
+            .json({mensagem: 'Erro ao atualizar local de coleta'})
+            
         }
     }
 
@@ -167,8 +167,8 @@ class LocalColetaController{
 
         } catch (error) {
             response.status(500)
-            //.json({ mensagem: "Erro ao encontrar este local" })
-            .json({ mensagem: error.message })
+            .json({ mensagem: "Erro ao encontrar este local" })
+            
         }
     }
    
